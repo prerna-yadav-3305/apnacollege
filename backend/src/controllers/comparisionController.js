@@ -1,4 +1,4 @@
-const Comparison = require('../models/Comparison');
+const Comparison = require('../models/Comparision');
 
 exports.getUserComparisons = async (req, res) => {
   try {

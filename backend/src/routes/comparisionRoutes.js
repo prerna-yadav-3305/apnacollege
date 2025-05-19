@@ -1,9 +1,8 @@
+// routes/collegeRoutes.js (or similar)
 const express = require('express');
 const router = express.Router();
-const comparisonController = require('../controllers/comparisonController');
-const auth = require('../middleware/authMiddleware');
+const { compareColleges } = require('../controllers/collegeController');
 
-router.get('/', auth, comparisonController.getUserComparisons);
-router.post('/', auth, comparisonController.saveComparison);
+router.post('/compare', compareColleges); // POST, not GET
 
 module.exports = router;

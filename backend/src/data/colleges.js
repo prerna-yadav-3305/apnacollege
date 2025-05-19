@@ -3,6 +3,7 @@ const colleges = [
     name: 'Indian Institute of Technology Bombay',
     location: 'Mumbai, Maharashtra',
     type: 'Public',
+    streams: ['Engineering', 'Technology', 'Science'],
     rankings: {
       national: 1,
       state: 1,
@@ -17,8 +18,7 @@ const colleges = [
     },
     academics: {
       avgClassSize: 60,
-      facultyRatio: 1/12,
-      // coursesOffered will be added later after Course seeding
+      facultyRatio: 1 / 12,
       coursesOffered: [],
     },
     studentLife: {
@@ -41,12 +41,13 @@ const colleges = [
     videos: [
       'https://example.com/videos/iitb-tour.mp4',
     ],
-    similarColleges: [], // Can be filled after seeding all
+    similarColleges: [],
   },
   {
     name: 'Delhi University',
     location: 'Delhi',
     type: 'Public',
+    streams: ['Arts', 'Science', 'Commerce'],
     rankings: {
       national: 10,
       state: 1,
@@ -61,7 +62,7 @@ const colleges = [
     },
     academics: {
       avgClassSize: 80,
-      facultyRatio: 1/25,
+      facultyRatio: 1 / 25,
       coursesOffered: [],
     },
     studentLife: {
@@ -89,6 +90,7 @@ const colleges = [
     name: 'Amity University',
     location: 'Noida, Uttar Pradesh',
     type: 'Private',
+    streams: ['Management', 'Engineering', 'Arts'],
     rankings: {
       national: 30,
       state: 3,
@@ -103,7 +105,7 @@ const colleges = [
     },
     academics: {
       avgClassSize: 50,
-      facultyRatio: 1/15,
+      facultyRatio: 1 / 15,
       coursesOffered: [],
     },
     studentLife: {
@@ -128,5 +130,3 @@ const colleges = [
     similarColleges: [],
   },
 ];
-
-module.exports = colleges;

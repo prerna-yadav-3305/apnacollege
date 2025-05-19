@@ -21,49 +21,86 @@ const VirtualTourSchema = new mongoose.Schema({
 
 const CollegeSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  type: { type: String, enum: ['Public', 'Private', 'Deemed', 'Autonomous'], default: 'Public' },
+
+  type: {
+    type: String,
+    enum: ['Public', 'Private', 'Deemed', 'Autonomous'],
+    default: 'Public'
+  },
+
+  estd: { type: String }, // e.g., "1998"
+  ownership: { type: String }, // e.g., "Public/Government"
+  campusSize: { type: String }, // e.g., "300 acres"
+
   location: {
-    city: { type: String },
-    state: { type: String },
+    city: String,
+    state: String,
     country: { type: String, default: 'India' },
-    address: { type: String },
-    pincode: { type: String }
+    address: String,
+    pincode: String
   },
+
   contact: {
-    phone: { type: String },
-    email: { type: String },
-    website: { type: String }
+    phone: String,
+    email: String,
+    website: String
   },
+
   rankings: {
-    national: { type: Number }, // National rank
-    state: { type: Number },    // State rank
-    global: { type: Number }    // Global rank if any
+    national: Number,
+    state: Number,
+    global: Number,
+    rank: Number // Direct rank if needed separately
   },
+
   admissions: {
-    eligibility: { type: String },   // Eligibility criteria summary
-    entrance_exams: [String],        // List of accepted entrance exams like JEE, NEET, etc.
-    application_fee: { type: Number }
+    eligibility: String,
+    entrance_exams: [String],
+    application_fee: Number
   },
+
   courses: [CourseSchema],
+
   fees: {
-    average_tuition_fee: { type: Number },
-    hostel_fee: { type: Number }
+    average_tuition_fee: Number,
+    hostel_fee: Number
   },
-  facilities: [String],  // List like 'Library', 'Sports Complex', 'Hostel', 'Labs'
+
+  placement: {
+    btech: String,
+    mba: String
+  },
+
+  facilities: {
+    wifi: { type: Boolean, default: false },
+    hostel: { type: Boolean, default: false },
+    gym: { type: Boolean, default: false },
+    cafeteria: { type: Boolean, default: false },
+    library: { type: Boolean, default: false },
+    medical: { type: Boolean, default: false },
+    boys_hostel: { type: Boolean, default: false },
+    girls_hostel: { type: Boolean, default: false },
+    // Add more facilities as needed
+  },
+
   student_life: {
     clubs: [String],
     events: [String]
   },
+
   athletics: {
-    teams: [String], // e.g., Cricket, Basketball teams
+    teams: [String],
     achievements: [String]
   },
+
   graduation_outcomes: {
-    average_salary: { type: Number },
-    placement_rate: { type: Number } // Percentage
+    average_salary: Number,
+    placement_rate: Number // %
   },
+
   virtual_tours: [VirtualTourSchema],
   reviews: [ReviewSchema],
+
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });
